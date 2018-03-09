@@ -12,14 +12,26 @@
 </head>
 
 <body>
-    <br>
-    <button id="search">Search</button>
-    <div id="images">
-    </div>
+    <div class="container">
+        <h1>Looney Tunes Characters Search</h1>
 
+        <!-- Looney Tunes Characters will get dumped here -->
+        <div id="characters-view"></div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="assets/javascript/giphy.js"></script>
+        <!-- Rendered Buttons will get dumped here -->
+        <div id="buttons-view"></div>
+        <br>
+        <form id="character-form">
+            <label for="character-input">Add your favorite Character</label>
+            <input type="text" id="character-input">
+            <br>
+
+            <!-- Button triggers new Character to be added -->
+            <input id="add-character" type="submit" value="Add your favorite Character">
+        </form>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="assets/javascript/giphy.js"></script>
 
 
 </body>
