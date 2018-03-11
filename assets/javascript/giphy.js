@@ -3,7 +3,7 @@
 // **********************************************
 
 // Initial array of topics
-var Characters = [
+var characters = [
   "bugs bunny",
   "tasmanian devil",
   "elmer fudd",
@@ -11,20 +11,12 @@ var Characters = [
   "foghorn leghorn"
 ];
 
-// displayCharacterInfo function re-renders the HTML to display the appropriate content
-// function displayCharacterInfo() {
-//   var character = $(this).attr("data-title");
-//   var queryURL =
-//     "https://api.giphy.com/v1/gifs/random?api_key=dVQjq1REC3cKtfq4yAtBoiFMzxz2UxuX&tag=" +
-//     character +
-//     "&rating=";
-
 function displayCharacterInfo() {
-  var character = $(this).attr("data-title");
+  var character = $(this).attr("data-name");
   var queryURL =
-    "https://api.giphy.com/v1/gifs/search?q=" +
+    "https://api.giphy.com/v1/gifs/search?api_key=dVQjq1REC3cKtfq4yAtBoiFMzxz2UxuX&q=" +
     character +
-    "&api_key=dVQjq1REC3cKtfq4yAtBoiFMzxz2UxuX";
+    "&limit=10&offset=0&lang=en";
 
   // Creating an AJAX call for the specific character button being clicked
   $.ajax({
@@ -35,7 +27,7 @@ function displayCharacterInfo() {
     var characterDiv = $("<div class='character'>");
 
     // Storing the rating data
-    var rating = response.data.rating;
+    var rating = response.data[0].rating;
 
     // Creating an element to have the rating displayed
     var pOne = $("<p>").text("Rating: " + rating);
@@ -44,10 +36,10 @@ function displayCharacterInfo() {
     characterDiv.append(pOne);
 
     // Retrieving the URL for the image
-    var imgURL = response.data.images.original_still.url;
+    var imgURL = response.data[0].images.original_still.url;
 
     // Creating an element to hold the image
-    var image = $("<img>").attr("src", imgUrl);
+    var image = $("<img>").attr("src", imgURL);
 
     // Appending the image
     characterDiv.append(image);
@@ -68,17 +60,17 @@ function renderButtons() {
   $("#buttons-view").empty();
 
   // Looping through the array of topics
-  for (var i = 0; i < Characters.length; i++) {
+  for (var i = 0; i < characters.length; i++) {
     //
     var a = $("<button>");
     // Adding a class of character-btn to our button
     a.addClass("character-btn");
 
     // Adding a data attribute
-    a.attr("data-name", Characters[i]);
+    a.attr("data-name", characters[i]);
 
     // Providing the initial button text
-    a.text(Characters[i]);
+    a.text(characters[i]);
 
     // Adding the button to the buttons-view div
     $("#buttons-view").append(a);
@@ -96,7 +88,7 @@ $("#add-character").on("click", function(event) {
     .trim();
 
   // Adding characters from the textbox to the array
-  Characters.push(character);
+  characters.push(character);
 
   // Calling renderTopics
   renderButtons();
