@@ -1,7 +1,6 @@
 // **********************************************
 //             GLOBAL VARIABLES
 // **********************************************
-
 // Initial array of topics
 var characters = [
   "bugs bunny",
@@ -14,38 +13,61 @@ var characters = [
 function displayCharacterInfo() {
   var character = $(this).attr("data-name");
   var queryURL =
-    "https://api.giphy.com/v1/gifs/search?api_key=dVQjq1REC3cKtfq4yAtBoiFMzxz2UxuX&q=" +
+    "https://api.giphy.com/v1/gifs/search?q=" +
     character +
-    "&limit=10&offset=0&lang=en";
+    "&api_key=dVQjq1REC3cKtfq4yAtBoiFMzxz2UxuX&limit=10";
 
   // Creating an AJAX call for the specific character button being clicked
   $.ajax({
     url: queryURL,
     method: "GET"
   }).then(function(response) {
-    // Creating a div to hold the character
-    var characterDiv = $("<div class='character'>");
+    $("#characters-view").empty();
 
-    // Storing the rating data
-    var rating = response.data[0].rating;
+    for (x = 0; x < response.pagination.count; x++) {
+      // Creating a div to hold the character
+      var characterDiv = $("<div class='character'>");
 
-    // Creating an element to have the rating displayed
-    var pOne = $("<p>").text("Rating: " + rating);
+      // Storing the rating data
+      var rating = response.data[x].rating;
 
-    // Displaying the rating
-    characterDiv.append(pOne);
+      // Creating an element to have the rating displayed
+      var pOne = $("<p>").text("Rated: " + rating);
 
-    // Retrieving the URL for the image
-    var imgURL = response.data[0].images.original_still.url;
+      // Displaying the rating
+      characterDiv.append(pOne);
 
-    // Creating an element to hold the image
-    var image = $("<img>").attr("src", imgURL);
+      // Retrieving the URL for the image
+      var imgURL = response.data[x].images.fixed_width_still.url;
 
-    // Appending the image
-    characterDiv.append(image);
+      // var animatedURL = response.data[x].images.fixed_width.url;
 
-    // Putting the entire Character above the previous Characters
-    $("#characters-view").prepend(characterDiv);
+      // Creating an element to hold the image
+      var image = $("<img>").attr("src", imgURL);
+
+      // Adding an attribute to declare animation state
+      // image.attr("animate", "no");
+
+      // Adding URL image to the attribute state of 'still'
+      // image.attr("still", imgURL);
+
+      // Adding URL image to the attribute state of 'animate'
+      // image.attr("running", animatedURL);
+
+      // Create listener event to toggle still to animate
+      // image.click(function() {
+      //   alert("Toggle between still and animate");
+      // if (animatedURL === "still") {
+      //   $(this).attr("running", animatedURL);
+      // });
+
+      // Appending the image
+      characterDiv.append(image);
+      // );
+
+      // Putting the entire Character above the previous Characters
+      $("#characters-view").prepend(characterDiv);
+    }
   });
 }
 
