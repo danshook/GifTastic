@@ -3,11 +3,12 @@
 // **********************************************
 // Initial array of topics
 var characters = [
-  "bugs bunny",
-  "tasmanian devil",
-  "elmer fudd",
-  "yosemite sam",
-  "foghorn leghorn"
+  "Slowpoke Rodriguez",
+  "Penelope Pussycat",
+  "Witch Hazel",
+  "Wile E. Coyote & Road Runner",
+  "Yosemite Sam",
+  "Beaky Buzzard"
 ];
 
 function displayCharacterInfo() {

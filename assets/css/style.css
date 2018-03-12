@@ -1,0 +1,7 @@
+.character {
+  float: left;
+  display: inline-block;
+  text-align: center;
+  height: 200px;
+  margin: 5px;
+}
