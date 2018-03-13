@@ -6,7 +6,7 @@ var characters = [
   "Slowpoke Rodriguez",
   "Penelope Pussycat",
   "Witch Hazel",
-  "Wile E. Coyote & Road Runner",
+  "Wile E. Coyote",
   "Yosemite Sam",
   "Beaky Buzzard"
 ];
@@ -41,26 +41,33 @@ function displayCharacterInfo() {
       // Retrieving the URL for the image
       var imgURL = response.data[x].images.fixed_width_still.url;
 
-      // var animatedURL = response.data[x].images.fixed_width.url;
+      var animatedURL = response.data[x].images.fixed_width.url;
 
       // Creating an element to hold the image
       var image = $("<img>").attr("src", imgURL);
 
       // Adding an attribute to declare animation state
-      // image.attr("animate", "no");
+      image.attr("animate", "no");
 
       // Adding URL image to the attribute state of 'still'
-      // image.attr("still", imgURL);
+      image.attr("still", imgURL);
 
       // Adding URL image to the attribute state of 'animate'
-      // image.attr("running", animatedURL);
+      image.attr("running", animatedURL);
 
       // Create listener event to toggle still to animate
-      // image.click(function() {
-      //   alert("Toggle between still and animate");
-      // if (animatedURL === "still") {
-      //   $(this).attr("running", animatedURL);
-      // });
+      image.click(function() {
+        //   alert("Toggle between still and animate");
+        if ($(this).attr("animate") === "no") {
+          var newURL = $(this).attr("running");
+          $(this).attr("src", newURL);
+          $(this).attr("animate", "yes");
+        } else {
+          var newURL = $(this).attr("still");
+          $(this).attr("src", newURL);
+          $(this).attr("animate", "no");
+        }
+      });
 
       // Appending the image
       characterDiv.append(image);
