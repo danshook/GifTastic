@@ -14,7 +14,15 @@
   display: inline-block;
   text-align: center;
   height: 200px;
-  margin: 5px;
+}
+
+div.character {
+  margin: 35px 20px 40px 20px;
+  max-height: 200px;
+}
+
+.p {
+  margin: 50px;
 }
 
 .character-btn {
@@ -23,11 +31,7 @@
 
 #buttons-view {
   margin: 5px 5px 5px 0;
-}
-
-#character-form {
-  margin: 5px;
-  /* clear: both; */
+  padding: 5px;
 }
 
 .character-btn {
@@ -35,4 +39,29 @@
   border-color: black;
   background-color: black;
   color: yellow;
+}
+
+.p {
+  clear: both;
+}
+
+#character-form {
+  background-color: blue;
+  color: white;
+  margin: 5px;
+  padding: 5px;
+}
+
+#add-character {
+  background-color: yellow;
+  color: black;
+}
+
+#character-input {
+  font-family: "Bungee Shade", cursive;
+  color: green;
+}
+
+.searchBar {
+  margin: 0 auto;
 }

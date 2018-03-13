@@ -8,7 +8,7 @@ var characters = [
   "Witch Hazel",
   "Wile E. Coyote",
   "Yosemite Sam",
-  "Beaky Buzzard"
+  "Bugs Bunny"
 ];
 
 function displayCharacterInfo() {
@@ -16,7 +16,7 @@ function displayCharacterInfo() {
   var queryURL =
     "https://api.giphy.com/v1/gifs/search?q=" +
     character +
-    "&api_key=dVQjq1REC3cKtfq4yAtBoiFMzxz2UxuX&limit=12";
+    "&api_key=dVQjq1REC3cKtfq4yAtBoiFMzxz2UxuX&limit=10";
 
   // Creating an AJAX call for the specific character button being clicked
   $.ajax({
@@ -33,27 +33,17 @@ function displayCharacterInfo() {
       var rating = response.data[x].rating;
 
       // Creating an element to have the rating displayed
-      var pOne = $("<p>").text("Rated: " + rating);
-
-      $("<p>").css({
-        margin: "20px"
-      });
+      var pOne = $("<p>").html("Rated: " + rating);
 
       // Displaying the rating
       characterDiv.append(pOne);
 
-      // Retrieving the URL for the image
+      // Retrieving the URL's for the image
       var imgURL = response.data[x].images.fixed_width_still.url;
-
       var animatedURL = response.data[x].images.fixed_width.url;
 
       // Creating an element to hold the image
       var image = $("<img>").attr("src", imgURL);
-
-      $("imgURL").css({
-        "background-color": "red",
-        "background-style": "solid"
-      });
 
       // Adding an attribute to declare animation state
       image.attr("animate", "no");
