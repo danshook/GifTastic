@@ -8,33 +8,36 @@
     <title>GifTastic</title>
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Bungee+Shade|Fascinate+Inline|Vast+Shadow" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
 
 </head>
 
 <body>
-    <div class="container">
-        <h1>Looney Tunes Character Search</h1>
+    <div class="container-fluid">
+        <div class="row">
+            <div id="banner">
+                LOONEY TUNES
+                <br> GIF Search
+            </div>
+            <!-- Rendered Buttons will get dumped here -->
+            <div id="buttons-view"></div>
+            <br>
+            <form id="character-form">
+                <label for="character-input">Who's your favorite Character?</label>
+                <input type="text" id="character-input">
+
+                <!-- Button triggers new Character to be added -->
+                <input id="add-character" type="submit" value="Click here to add them!">
+            </form>
+
+            <!-- Looney Tunes Characters will get dumped here -->
+            <div id="characters-view"></div>
 
 
-        <!-- Rendered Buttons will get dumped here -->
-        <div id="buttons-view"></div>
-        <br>
-        <form id="character-form">
-            <label for="character-input">Who's your favorite Character?</label>
-            <input type="text" id="character-input">
-
-            <!-- Button triggers new Character to be added -->
-            <input id="add-character" type="submit" value="Click here to add them!">
-        </form>
-
-        <!-- Looney Tunes Characters will get dumped here -->
-        <div id="characters-view"></div>
-
-
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="assets/javascript/giphy.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            <script src="assets/javascript/giphy.js"></script>
 
 
 </body>

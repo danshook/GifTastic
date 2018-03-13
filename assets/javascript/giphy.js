@@ -16,7 +16,7 @@ function displayCharacterInfo() {
   var queryURL =
     "https://api.giphy.com/v1/gifs/search?q=" +
     character +
-    "&api_key=dVQjq1REC3cKtfq4yAtBoiFMzxz2UxuX&limit=10";
+    "&api_key=dVQjq1REC3cKtfq4yAtBoiFMzxz2UxuX&limit=12";
 
   // Creating an AJAX call for the specific character button being clicked
   $.ajax({
@@ -35,6 +35,10 @@ function displayCharacterInfo() {
       // Creating an element to have the rating displayed
       var pOne = $("<p>").text("Rated: " + rating);
 
+      $("<p>").css({
+        margin: "20px"
+      });
+
       // Displaying the rating
       characterDiv.append(pOne);
 
@@ -46,6 +50,11 @@ function displayCharacterInfo() {
       // Creating an element to hold the image
       var image = $("<img>").attr("src", imgURL);
 
+      $("imgURL").css({
+        "background-color": "red",
+        "background-style": "solid"
+      });
+
       // Adding an attribute to declare animation state
       image.attr("animate", "no");
 
@@ -54,6 +63,8 @@ function displayCharacterInfo() {
 
       // Adding URL image to the attribute state of 'animate'
       image.attr("running", animatedURL);
+
+      $(image).css("border", "double 7px green");
 
       // Create listener event to toggle still to animate
       image.click(function() {

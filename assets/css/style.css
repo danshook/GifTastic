@@ -1,3 +1,14 @@
+#banner {
+  /* font-family: 'Vast Shadow', cursive;
+  font-family: 'Bungee Shade', cursive; */
+  font-family: "Fascinate Inline", cursive;
+  font-size: 75px;
+  background-image: url("../images/1.jpg");
+  color: yellow;
+  width: 100%;
+  text-align: center;
+}
+
 .character {
   float: left;
   display: inline-block;
@@ -8,4 +19,13 @@
 
 .character-btn {
   margin: 3px;
+}
+
+#buttons-view {
+  margin: 5px 5px 5px 0;
+}
+
+#character-form {
+  margin: 5px;
+  /* clear: both; */
 }
