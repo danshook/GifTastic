@@ -64,7 +64,7 @@ function displayCharacterInfo() {
       // Adding URL image to the attribute state of 'animate'
       image.attr("running", animatedURL);
 
-      $(image).css("border", "double 7px green");
+      $(image).css("border", "double 8px green");
 
       // Create listener event to toggle still to animate
       image.click(function() {
